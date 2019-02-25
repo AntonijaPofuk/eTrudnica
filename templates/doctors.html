@@ -5,11 +5,13 @@
     <title>eTrudnica</title>
   </head>
   <body>
-
     {% extends "template.html" %}
     {% block content %}
-    <p> Aplikacija namijenjena trudnicama i onima koji to žele tek postati</p>
-    <p> </p>
+        <h3>Doktori (<a href = "{{ url_for('new') }}">Dodaj podatke
+             </a>)</h3>
+         {% for doktor in doktori %}
+         <p>{{ doktor.doktor }}</p>
+         {% endfor %}
     
     {% endblock %}
   </body>
