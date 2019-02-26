@@ -10,13 +10,16 @@
     <h1>Bolnički podaci</h1>
 
     {% for book in books %}
-      <p>{{book.title}}</p>
+     
       <form method="POST" action="./update">
+        <input type="hidden" value="{{book.id}}" name="oldid">
+        <input type="text" value="{{book.id}}" name="newid">
         <input type="hidden" value="{{book.title}}" name="oldtitle">
         <input type="text" value="{{book.title}}" name="newtitle">
+                 
+        
         <input type="submit" value="Ažuriraj">
       </form>
-  
       <form method="POST" action="./delete">
       <input type="hidden" value="{{book.title}}" name="title">
       <input type="submit" value="Izbriši">
@@ -24,7 +27,7 @@
  
     {% endfor %}
     
-       <form method="POST" action="/new">
+    <form method="POST" action="./new">
     <input type="text" name="title" style="width: 250px;">        
     <input type="submit" value="Dodaj">
     </form>

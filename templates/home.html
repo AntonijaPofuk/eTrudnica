@@ -1,15 +1,45 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>eTrudnica</title>
-  </head>
+
   <body>
 
     {% extends "template.html" %}
     {% block content %}
     <p> Aplikacija namijenjena trudnicama i onima koji to žele tek postati</p>
     <p> </p>
+    
+     {% for korisnica in korisnice %}
+        <form method="POST" action="./updateKorisnica">
+        <input type="hidden" value="{{korisnica.OIB}}" name="oldOIB">
+        <input type="text" value="{{korisnica.OIB}}" name="newOIB">
+        <input type="hidden" value="{{korisnica.ime}}" name="oldime">
+        <input type="text" value="{{korisnica.ime}}" name="newime">
+        <input type="hidden" value="{{korisnica.prezime}}" name="oldprezime">
+        <input type="text" value="{{korisnica.prezime}}" name="newprezime">
+        <input type="hidden" value="{{korisnica.adresa}}" name="oldadresa">
+        <input type="text" value="{{korisnica.adresa}}" name="newadresa">
+        <input type="hidden" value="{{korisnica.email}}" name="oldmail">
+        <input type="text" value="{{korisnica.email}}" name="newmail">
+        <input type="hidden" value="{{korisnica.tel}}" name="oldtel">
+        <input type="text" value="{{korisnica.telefon}}" name="newtel">
+        <input type="hidden" value="{{korisnica.datum_rodjenja}}" name="olddatum_rodjenja">
+        <input type="text" value="{{korisnica.datum_rodjenja}}" name="newdatum_rodjenja">
+          
+        <input type="submit" value="Ažuriraj">
+      </form>
+     
+     {% endfor %}
+     
+    <form method="POST" action="./home">
+    
+        <input type="text" name="OIB" style="width: 250px;">  
+        <input type="text" name="ime" style="width: 250px;">
+        <input type="text" name="prezime" style="width: 250px;">
+        <input type="text" name="adresa" style="width: 250px;">
+        <input type="text" name="email" style="width: 250px;">
+        <input type="text" name="telefon" style="width: 250px;">
+        <input type="text" name="datum_rodjenja" style="width: 250px;">
+           
+    <input type="submit" value="Dodaj">
+    </form>
     
     {% endblock %}
   </body>
