@@ -1,0 +1,31 @@
+  <body>
+    
+    {% extends "template.html" %}
+    {% block content %}
+    <p>Hello </p>
+     {% for bolnicki_podaci in bolnicki_podaci %}
+            <form method="POST" action="./updateBolnickiPodaci">
+            <input type="hidden" value="{{trudnoca.id_trudnoce}}" name="oldid_trudnoce">
+            <input type="text" value="{{trudnoca.id_trudnoce}}" name="newid_trudnoce">
+            <input type="hidden" value="{{trudnoca.id_korisnice}}" name="oldid_korisnice">
+            <input type="text" value="{{trudnoca.id_korisnice}}" name="newid_korisnice">
+            <input type="hidden" value="{{trudnoca.pocetak}}" name="oldpocetak">
+            <input type="text" value="{{trudnoca.pocetak}}" name="newpocetak">
+            <input type="hidden" value="{{trudnoca.kraj}}" name="oldkraj">
+            <input type="text" value="{{trudnoca.kraj}}" name="newkraj">
+            <input type="hidden" value="{{trudnoca.opis}}" name="newopis">
+            <input type="text" value="{{trudnoca.opis}}" name="oldopis">
+            <input type="submit" value="Ažuriraj">
+          </form>
+         {% endfor %}
+     <form method="POST" action="./modifyBolnickiPodaci">
+        <input type="text" name="id_trudnoce" >  
+        <input type="text" name="id_korisnice" >
+        <input type="text" name="pocetak" >
+        <input type="text" name="kraj">
+        <input type="text" name="opis">
+    <input type="submit" value="Dodaj">
+         
+         </form> {% endblock %}
+  </body>
+</html>

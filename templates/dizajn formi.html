@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <title>O aplikaciji</title>
   <meta charset="utf-8">
@@ -8,21 +8,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body class = "body">
+<body>
 
- <header>
-      <div class="container">
-        <h1 class="logo">eTrudnica</h1>
-        <strong><nav>
-          <ul class="menu">
-            <li><a href="{{ url_for('home') }}">Početna</a></li>
-            <li><a href="{{ url_for('doctors') }}">Doktori</a></li>
-          </ul>
-        </nav></strong>
-      </div>
-    </header>
-	
-	<nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">eTrudnica</a>
@@ -35,7 +23,13 @@
     </ul>
   </div>
 </nav>
-{% block content %}
-{% endblock %}
+  
+<div class="container">
+  <h3>eTrudnica</h3>
+  <p>Aplikacija je izrađena za potrebe kolegija Teorija baza podataka.</p>
+  <p>Implementirana je aktivna baza podataka s komponentama temporalnih baza. Prilkom rada je korištena
+lokalna baza podataka izrađena u Postgres-u, dok je sam programski kod izrađen u Python-u gdje je korišten Flask.</p>
+</div>
 
-
+</body>
+</html>

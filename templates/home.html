@@ -1,11 +1,8 @@
-
   <body>
-
     {% extends "template.html" %}
     {% block content %}
     <p> Aplikacija namijenjena trudnicama i onima koji to žele tek postati</p>
     <p> </p>
-    
      {% for korisnica in korisnice %}
         <form method="POST" action="./updateKorisnica">
         <input type="hidden" value="{{korisnica.OIB}}" name="oldOIB">
@@ -22,25 +19,34 @@
         <input type="text" value="{{korisnica.telefon}}" name="newtel">
         <input type="hidden" value="{{korisnica.datum_rodjenja}}" name="olddatum_rodjenja">
         <input type="text" value="{{korisnica.datum_rodjenja}}" name="newdatum_rodjenja">
-          
         <input type="submit" value="Ažuriraj">
       </form>
-     
      {% endfor %}
-     
-    <form method="POST" action="./home">
-    
-        <input type="text" name="OIB" style="width: 250px;">  
-        <input type="text" name="ime" style="width: 250px;">
-        <input type="text" name="prezime" style="width: 250px;">
-        <input type="text" name="adresa" style="width: 250px;">
-        <input type="text" name="email" style="width: 250px;">
-        <input type="text" name="telefon" style="width: 250px;">
-        <input type="text" name="datum_rodjenja" style="width: 250px;">
-           
+    <form method="POST" action="./addKorisnica">
+        <input type="text" name="OIB">  
+        <input type="text" name="ime">
+        <input type="text" name="prezime">
+        <input type="text" name="adresa">
+        <input type="text" name="email">
+        <input type="text" name="telefon">
+        <input type="text" name="datum_rodjenja">  
     <input type="submit" value="Dodaj">
     </form>
+     <p><a href="{{ url_for('pregledPodsjetnika') }}">Podsjetnici</a></p>   
+  <p><a href="{{ url_for('modifyBolnickiPodaci') }}">Bolnički podaci</a></p>    
+
+     
+  <h3>Trudnoce (<a href = "{{ url_for('modifyTrudnoca') }}">Dodaj podatke</a>)</h3>
+         {% for trudnoca in trudnoce %}
+         <p>{{ trudnoca.opis }}</p>
+         {% endfor %}  
+         
+  <h3>Novorodencad (<a href="{{ url_for('modifyNovorodence') }}">Dodaj podatke</a>)</h3>
+ {% for novorodence in novorodencad %}
+ <p>{{ novorodence.ime }}</p>
+ {% endfor %}         
     
-    {% endblock %}
+   {% endblock %}
+ 
   </body>
 </html>

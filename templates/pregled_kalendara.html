@@ -10,32 +10,28 @@
 </head>
 <body class = "body">
 
- <header>
-      <div class="container">
-        <h1 class="logo">eTrudnica</h1>
-        <strong><nav>
-          <ul class="menu">
-            <li><a href="{{ url_for('home') }}">Početna</a></li>
-            <li><a href="{{ url_for('doctors') }}">Doktori</a></li>
-          </ul>
-        </nav></strong>
-      </div>
-    </header>
-	
+ 
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">eTrudnica</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Pocetna</a></li>
-      <li><a href="#">Korisnicki podaci</a></li>
-      <li><a href="#">Bolnicki podaci</a></li>
+      <li class="active"><a href="{{ url_for('home') }}">Pocetna</a></li>
+      <li><a href="{{ url_for('home') }}">Korisnicki podaci</a></li>
+      <li><a href="{{ url_for('doctors') }}"">Bolnicki podaci</a></li>
       <li><a href="#">Kalendar</a></li>
     </ul>
   </div>
 </nav>
-{% block content %}
-{% endblock %}
 
-
+   <h3>Pregled obaveza</h3> 
+  <p><a href="{{ url_for('pregledPodsjetnika') }}">Cijepljenja</a></p>   
+  <p><a href="{{ url_for('modifyBolnickiPodaci') }}">Pregledi</a></p>    
+  <p><a href="{{ url_for('modifyBolnickiPodaci') }}">Terapije</a></p>    
+   
+    
+   {% endblock %}
+ 
+  </body>
+</html>

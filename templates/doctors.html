@@ -7,12 +7,10 @@
   <body>
     {% extends "template.html" %}
     {% block content %}
-        <h3>Doktori (<a href = "{{ url_for('new') }}">Dodaj podatke
-             </a>)</h3>
+        <h3>Doktori (<a href = "{{ url_for('new') }}">Dodaj podatke</a>)</h3>
          {% for doktor in doktori %}
          <p>{{ doktor.doktor }}</p>
          {% endfor %}
-    
     {% endblock %}
   </body>
 </html>
