@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Pregled bolnickih podataka</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>       
+    </h:head>
+    <h:body style="background-color: #C8C8C8">           
+        <div class="container">
+            <h2>Podaci o pregledu</h2>            
+            <h:form>              
+                <h:outputLabel value= "Naziv" />
+                <p:inputText id="ss" value="#{pregledBolPodataka.nazivP}"/> <br/>
+                <h:outputLabel value="Opis" />
+                <p:inputText id="as" value="#{pregledBolPodataka.opisP}" /> <br/>
+                <h:outputLabel value= "Tjedan trudnoce" />
+                <p:inputText id="a" value="#{pregledBolPodataka.tjedanP}"/> <br/>
+                <h:outputLabel value= "Tezina" />
+                <p:inputText id="ime" value="#{pregledBolPodataka.tezinaP}"/> <br/>
+                <h:outputLabel value="Otkucaji srca" />
+                <p:inputText id="prezime" value="#{pregledBolPodataka.otkucajiP}" /> <br/>
+                <h:outputLabel value= "Opis ultrazvuka" />
+                <p:inputText id="OIB" value="#{pregledBolPodataka.opisUltrazvuka}"/> <br/>
+                 <h:outputLabel value= "Datum" />
+                 <p:inputText id="OsIB" value="#{pregledBolPodataka.datumP}"/> <br/>
+                <br/><br/><br/><br/>
+                <p:commandButton id="azur" value="AŽURIRAJ PODATKE" action="#{pregledBolPodataka.urediPregled()}">
+                </p:commandButton>
+            </h:form>  
+        </div>
+    </h:body>
+</html>
+

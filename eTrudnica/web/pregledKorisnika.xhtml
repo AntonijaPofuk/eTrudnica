@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Pregled korisnika</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>       
+    </h:head>
+            <h:body style="background-color: #C8C8C8">
+              Pregled korisnica                  
+        <h:form>
+            <p:dataTable id="users" var="korisnik" value="#{pregledKorisnica.lista}"  class="table"
+                          paginator="true" rows="#{pregledKorisnica.limit}"
+                           paginatorTemplate="{CurrentPageReport} {FirstPageLink}
+                           {PreviousPageLink} {PageLinks} {NextPageLink}
+                           {LastPageLink} {RowsPerPageDropdown}"  currentPageReportTemplate="UKUPNO KORISNICA : {totalRecords}"
+                          rowsPerPageTemplate="#{pregledKorisnica.limit}" >           
+                <p:column>
+                    <f:facet name="header" > OIB </f:facet>
+                    <h:outputText value="#{korisnik.OIB}"/>
+                </p:column>
+               
+                <p:column  headerText="Id" sortBy="#{korisnik.ime}" filterBy="#{korisnik.ime}" >
+                    <f:facet name="header">Ime </f:facet>
+                    <h:outputText value="#{korisnik.ime}" />                        
+                </p:column>
+                <p:column >
+                    <f:facet name="header">Prezime </f:facet>
+                    <h:outputText value="#{korisnik.prezime}"></h:outputText>
+                </p:column>
+                <p:column >
+                    <f:facet name="header">Adresa </f:facet>
+                    <h:outputText value="#{korisnik.adresa}" />                        
+                </p:column>
+                <p:column >
+                    <f:facet name="header">Email </f:facet>
+                    <h:outputText value="#{korisnik.email}" />                        
+                </p:column>
+            </p:dataTable>
+            
+           
+        </h:form> 
+    </h:body>
+</html>
+

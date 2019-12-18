@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Pregled korisnika</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>       
+    </h:head>
+    <h:body style="background-color: #C8C8C8">           
+        <div class="container">
+            <h2>Podaci o korisnici</h2>            
+            <h:form>              
+                <h:outputLabel value= "Ime" />
+                <p:inputText id="ime" value="#{podaciOKorisnici.ime}"/> <br/>
+                <h:outputLabel value="Prezime" />
+                <p:inputText id="prezime" value="#{podaciOKorisnici.prezime}" /> <br/>
+                <h:outputLabel value= "OIB" />
+                <p:inputText id="OIB" value="#{podaciOKorisnici.OIB}"/> <br/>
+                <h:outputLabel value="Adresa" />
+                <p:inputText id="adresa" value="#{podaciOKorisnici.adresa}" /> <br/>
+                <h:outputLabel value= "Email adresa" />
+                <p:inputText id="email" value="#{podaciOKorisnici.email}"/>  <br/>
+                <h:outputLabel value="Telefon" />
+                <p:inputText id="telefon" value="#{podaciOKorisnici.telefon}" />  <br/>
+                <h:outputLabel value= "Datum rođenja" />
+                <p:inputText id="datumrodjenja" value="#{podaciOKorisnici.datum_rodjenja}"/>
+                <br/><br/>
+                <p:commandButton id="azur" value="AŽURIRAJ PODATKE" action="#{podaciOKorisnici.azurirajKorisnicu()}">
+                </p:commandButton>
+            </h:form>   
+            <h:form>
+                <h2>Podaci o trudnoci</h2>
+                <p:dataTable  id="trudnoce" class="table" var="l" value="#{podaciOKorisnici.lista2}"
+                              paginator="true" rows="10"
+                              paginatorTemplate="{CurrentPageReport} {FirstPageLink}
+                              {PreviousPageLink} {PageLinks} {NextPageLink}
+                              {LastPageLink} {RowsPerPageDropdown}"  currentPageReportTemplate="UKUPNO: {totalRecords}">
+                    <p:column >
+                        <f:facet name="header" > Opis  </f:facet>
+                            #{l.opis}
+                    </p:column>                       
+                    <p:column >
+                        <f:facet name="header">Pocetak</f:facet>
+                            #{l.pocetak}
+                    </p:column>
+                    <p:column >
+                        <f:facet name="header">Kraj</f:facet>
+                            #{l.kraj}
+                    </p:column>
+                    <p:column >
+                        <f:facet name="header">Predviđeno trajanje trudnoce</f:facet>
+                            #{podaciOKorisnici.izracunajTrudnocu(l.id)}
+                    </p:column>
+                    <p:column >
+                        <f:facet name="header">Akcija</f:facet>
+                <p:commandButton id="pregledN" value="UREDI" action="#{podaciOKorisnici.dajNovorodence(l.id)}">
+                </p:commandButton>
+                    </p:column>                 
+                </p:dataTable> 
+            </h:form>
+             <h3>Dodaj nove podatke</h3>
+        <p>U nastavku unesite podatke za trudnocu.</p>
+        <h:form>
+            <h:outputLabel value= "Pocetak trudnoce" />
+            <p:inputText id="korime" value="#{podaciOKorisnici.pocetakR}"/> <br/>
+            <h:outputLabel value="Kraj trudnoce" />
+            <h:inputText  id="doktor" value="#{podaciOKorisnici.krajR}" /> <br/>
+            <h:outputLabel value= "Detalji" />
+            <p:inputText id="imea" value="#{podaciOKorisnici.opisR}"/> <br/>               
+            <p:commandButton id="dodajB" value="SPREMI" action="#{podaciOKorisnici.dodajTrudnocu()}">
+            </p:commandButton>
+        </h:form> 
+        </div>
+    </h:body>
+</html>
+

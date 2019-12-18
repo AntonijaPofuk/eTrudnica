@@ -1,0 +1,6 @@
+Kako bi se omogućilo uspješno korištenje aplikacije i popratne baze podataka potrebno je obaviti slijedeće korake:
+1. Preuzeti netbeans i instalirati ga  (verziju koja odgovara vašem operacijskom sustavu pronađite ovdje:https://netbeans.org/downloads/8.2/ )
+2. Preuzmite i  instalirajte PostgreSQL 10 (verziju koja odgovara vašem operacijskom sustavu pronađite ovdje: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+3. Kreirajte vezu na PostgreSQL u NetBeans-u : unutar Services odabrati Drivers - desni klik na PostgreSQL driver i Connect using Wizzard - host:localhost, port:5432, database:tbp_baza, username:postgres, password: admin123
+4. Izvršite kreiranje baze i potrebnih tablica izvođenjem skripte baza.sql unutar netbeansa: pod services odabrati tbp_baza - desni klik na tables - execute SQL
+5. Pokrenuti projekt : preuzeti projekt i otvoriti ga unutar NetBeans-a - unutar Projects odabrati eTrudnica - desni klik - Run

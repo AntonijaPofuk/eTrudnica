@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Pregled komplikacija</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>       
+    </h:head>
+    <h:body style="background-color: #C8C8C8">           
+        <div class="container">
+            <h2>Podaci o komplikacijama</h2>            
+            <h:form>              
+                <h:outputLabel value= "Naziv" />
+                <p:inputText id="ime" value="#{podaciOKorisnici.nazivKA}"/> <br/>
+                <h:outputLabel value="Opis" />
+                <p:inputText id="prezime" value="#{podaciOKorisnici.opisKA}" /> <br/>
+                <h:outputLabel value= "Uzrok" />
+                <p:inputText id="OIB" value="#{podaciOKorisnici.uzrokKA}"/> <br/>
+                <br/><br/>
+                <p:commandButton id="azur" value="AŽURIRAJ PODATKE" action="#{podaciOKorisnici.azurirajKomplikaciju()}">
+                </p:commandButton>
+            </h:form>  
+        </div>
+    </h:body>
+</html>
+

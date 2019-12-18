@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Registracija</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </h:head>
+    <h:body style="background-color: #C8C8C8">
+        <div class="container">
+            <h2>Registracija</h2>
+            <p>U nastavku unesite svoje podatke koje ćete ubuduće koristi kod svake prijave</p>
+            <h:form>
+                <h:outputLabel value= "Korisnicko ime" />
+                <p:inputText id="korime" value="#{registracija.korisnicko_ime}"/> <br/>
+                <h:outputLabel value="Lozinka" />
+                <h:inputSecret id="pass" value="#{registracija.lozinkaK}" /> <br/>
+                <h:outputLabel value= "Ime" />
+                <p:inputText id="ime" value="#{registracija.ime}"/> <br/>
+                <h:outputLabel value="Prezime" />
+                <p:inputText id="prezime" value="#{registracija.prezime}" /> <br/>
+              <h:outputLabel value= "OIB" />
+              <p:inputText id="oib" value="#{registracija.OIB}"/> <br/>
+                <h:outputLabel value="Adresa" />
+                <p:inputText id="adresa" value="#{registracija.adresa}" /> <br/>
+                  <h:outputLabel value= "email" />
+              <p:inputText id="email" value="#{registracija.email}"/>  <br/>
+                <h:outputLabel value="Telefon" />
+                <p:inputText id="telefon" value="#{registracija.telefon}" />  <br/>
+                  <h:outputLabel value= "Datum rođenja" />
+                  <p:inputText id="datumrodjenja" value="#{registracija.datum_rodjenja}"/>
+                <br/>
+                <p:commandButton id="prijava" value="Spremi" action="#{registracija.registriraj()}">
+                </p:commandButton>
+                <p:button outcome="index_1" value="Odustani" icon="pi pi-star" style="width:200px; margin-right:20px; margin-left: 350px">
+                </p:button><br/><br/>
+            </h:form> 
+        </div>
+    </h:body>
+</html>
+

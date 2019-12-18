@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Pregled bolnickih podataka</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>       
+    </h:head>
+    <h:body style="background-color: #C8C8C8">           
+        <div class="container">
+            <h2>Podaci o bolnici i doktorima</h2>            
+            <h:form>              
+                <h:outputLabel value= "Bolnica" />
+                <p:inputText id="ime" value="#{pregledBolPodataka.naziv_bolnice}"/> <br/>
+                <h:outputLabel value="Doktor" />
+                <p:inputText id="prezime" value="#{pregledBolPodataka.doktor}" /> <br/>
+                <h:outputLabel value= "Detalji" />
+                <p:inputText id="OIB" value="#{pregledBolPodataka.podaci}"/> <br/>
+                <br/><br/>
+                <p:commandButton id="azur" value="AŽURIRAJ PODATKE" action="#{pregledBolPodataka.urediBolPodatke()}">
+                </p:commandButton>
+            </h:form>  
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Pregled novorodenceta</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>       
+    </h:head>
+    <h:body style="background-color: #C8C8C8">           
+        <div class="container">
+            <h2>Podaci o trudnoci</h2>            
+            <h:form>              
+                <h:outputLabel value= "Opis" />
+                <p:inputText id="ime" value="#{podaciOKorisnici.opis}"/> <br/>
+                <h:outputLabel value="Pocetak" />
+                <p:inputText id="prezime" value="#{podaciOKorisnici.pocetak}" /> <br/>
+                <h:outputLabel value= "Kraj" />
+                <p:inputText id="OIB" value="#{podaciOKorisnici.kraj}"/> <br/>              
+                <br/><br/>
+                <p:commandButton id="azur" value="AŽURIRAJ PODATKE" action="#{podaciOKorisnici.azurirajTrudnocu()}">
+                </p:commandButton>
+            </h:form>       
+            <h:form>
+                <h2>Podaci o novorodencetu</h2>
+                <p:dataTable  id="novorodencad" class="table" var="n" value="#{podaciOKorisnici.lista3}"
+                              paginator="true" rows="10"
+                              paginatorTemplate="{CurrentPageReport} {FirstPageLink}
+                              {PreviousPageLink} {PageLinks} {NextPageLink}
+                              {LastPageLink} {RowsPerPageDropdown}"  currentPageReportTemplate="UKUPNO: {totalRecords}">
+                    <p:column >
+                        <f:facet name="header" > Ime  </f:facet>
+                            #{n.ime}
+                    </p:column>                       
+                    <p:column >
+                        <f:facet name="header">Spol</f:facet>
+                            #{n.spol}
+                    </p:column>
+                    <p:column >
+                        <f:facet name="header">Tezina</f:facet>
+                            #{n.tezina}
+                    </p:column>
+                    <p:column >
+                        <f:facet name="header">Akcija</f:facet>
+                        <p:commandButton id="pregledN" value="UREDI" action="#{podaciOKorisnici.urediNovo(n.id)}">
+                        </p:commandButton>               
+                    </p:column>                 
+                </p:dataTable> 
+            </h:form>
+
+            <p>U nastavku unesite podatke za novorodence.</p>
+            <h:form>
+                <h:outputLabel value= "Ime" />
+                <p:inputText id="korime" value="#{podaciOKorisnici.imeR}"/> <br/>
+                <h:outputLabel value="Spol" />
+                <h:inputText  id="doktor" value="#{podaciOKorisnici.spolR}" /> <br/>
+                <h:outputLabel value= "Tezina" />
+                <p:inputText id="imea" value="#{podaciOKorisnici.tezinaR}"/> <br/>               
+                <p:commandButton id="dodajB" value="SPREMI" action="#{podaciOKorisnici.dodajBebu()}">
+                </p:commandButton>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Bolnicki podaci</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </h:head>
+    <h:body style="background-color: #C8C8C8">
+        <div class="container">
+            <h2>Bolnicki podaci</h2>
+            <p>U nastavku su navedeni podaci o bolnici i doktorima zaduženima za vođenje aktivne trudnoce.
+
+                <p:graphicImage url="resources/images/hospital.png" height="150px" 
+                                style="margin-right:100px; margin-left: 950px"/>
+                <br/><br/></p>
+        </div>    
+        <h:form>
+            <p:dataTable id="users" var="korisnik" value="#{pregledBolPodataka.lista}"  class="table"
+                         paginator="true" rows="#{pregledKorisnica.limit}"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink}
+                         {PreviousPageLink} {PageLinks} {NextPageLink}
+                         {LastPageLink} {RowsPerPageDropdown}"  currentPageReportTemplate="UKUPNO : {totalRecords}"
+                         rowsPerPageTemplate="#{pregledKorisnica.limit}" >
+                <p:column>
+                    <f:facet name="header" > Doktor </f:facet>
+                    <h:outputText value="#{korisnik.doktor}"/>
+                </p:column>
+                <p:column >
+                    <f:facet name="header">Bolnica </f:facet>
+                    <h:outputText value="#{korisnik.nazivBolnice}"></h:outputText>
+                </p:column>
+                <p:column >
+                    <f:facet name="header">Detalji </f:facet>
+                    <h:outputText value="#{korisnik.podaci}" />                        
+                </p:column>
+                <p:column >
+                    <f:facet name="header">Akcija</f:facet>
+                    <p:commandButton id="pregledB" value="UREDI" action="#{pregledBolPodataka.vidiBPodatke(korisnik.id)}">
+                    </p:commandButton>
+                </p:column>
+                <p:column>
+                       <f:facet name="header">Pregled</f:facet>
+                      <p:commandButton id="pregled" value="ODABERI" action="#{pregledBolPodataka.dajPreglede(korisnik.id)}">
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>         
+        </h:form>    
+         <h3>Dodaj nove podatke</h3>
+        <p>U nastavku unesite važeće bolničke podatke za koje će se pratiti evidencija u sustavu.</p>
+        <h:form>
+            <h:outputLabel value= "Naziv bolnice" />
+            <p:inputText id="korime" value="#{pregledBolPodataka.naziv_bolniceR}"/> <br/>
+            <h:outputLabel value="Doktor" />
+            <h:inputText  id="doktor" value="#{pregledBolPodataka.doktorR}" /> <br/>
+            <h:outputLabel value= "Detalji" />
+            <p:inputText id="ime" value="#{pregledBolPodataka.detaljiR}"/> <br/>               
+            <p:commandButton id="dodajB" value="SPREMI" action="#{pregledBolPodataka.dodajBPodatke()}">
+            </p:commandButton>            
+        </h:form> 
+     
+    </h:body>
+</html>
+

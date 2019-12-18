@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>NWTIS konfiguracija - JavaDB</comment>
+<entry key="server.database">jdbc:derby://localhost:1527/</entry>
+<entry key="admin.username">nwtis_g4</entry>
+<entry key="admin.password">g4_nwtis</entry>
+<entry key="admin.database">nwtis_g4</entry>
+<entry key="user.username">nwtis_g4</entry>
+<entry key="user.password">g4_nwtis</entry>
+<entry key="user.database">nwtis_g4</entry>
+<entry key="jdbc.derby">org.apache.derby.jdbc.ClientDriver</entry>
+</properties>
